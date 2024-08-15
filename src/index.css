@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root {
+    padding: 0; /* Adjust the padding value as needed */
+  }

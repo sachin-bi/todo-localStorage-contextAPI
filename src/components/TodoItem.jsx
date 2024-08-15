@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useTodo } from "../contexts/TodoContext";
+import { useTodo } from "../contexts";
+import { useState } from "react";
 
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false);
   const [todoMsg, setTodoMsg] = useState(todo.todo);
-
   const { updateTodo, deleteTodo, toggleComplete } = useTodo();
 
   const editTodo = () => {
@@ -12,9 +11,9 @@ function TodoItem({ todo }) {
     setIsTodoEditable(false);
   };
 
-  const toggleCompleted = () => {
-    toggleComplete(todo.id)
-  };
+  const toggleCompleted=()=>{
+    toggleComplete(todo.id);
+  }
 
   return (
     <div
@@ -33,7 +32,6 @@ function TodoItem({ todo }) {
         className={`border outline-none w-full bg-transparent rounded-lg ${
           isTodoEditable ? "border-black/10 px-2" : "border-transparent"
         } ${todo.completed ? "line-through" : ""}`}
-        
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!isTodoEditable}
